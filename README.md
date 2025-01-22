@@ -28,27 +28,29 @@
   ![Структура](./image/structure.png?raw=true)
 ### Описание интерфейсов
 - **Encoder**
-    - static std::string encode(std::string_view, ISalt); 
+    - ```static std::string encode(std::string_view, ISalt);```
     
         Кодирует строку при помощи соли
 
 - **Decoder**
-    - static std::string decode(std::string_view, ISalt); 
+    - ```static std::string decode(std::string_view, ISalt);``` 
     
         Декодирует строку по соли
 
 - **Algorithm**
-    - static ISalt genSalt(); Генерирует соль
+    - ``` static ISalt genSalt(); ```
+     
+        Генерирует соль
 
 - **Salt**
-    - std::span\<std::byte\> serialize(); 
+    - ```std::span\<std::byte\> serialize();```
     
         Сериализует соль в байты
-    - void writeToFile(std::string_view);
+    - ```void writeToFile(std::string_view);```
 
         Записывает соль в файл
 
-    - static ISalt readFromFile(std::string_view);
+    - ```static ISalt readFromFile(std::string_view);```
 
         Читает соль из файла
 
