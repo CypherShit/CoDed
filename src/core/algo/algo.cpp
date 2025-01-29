@@ -1,0 +1,10 @@
+#include "algo.h"
+#include <encoder/encoder.h>
+
+const Encoder& Algo::GetEncoder() const {
+    return *this;
+}
+
+const Decoder& Algo::GetDecoder() const {
+    return *this;
+}
