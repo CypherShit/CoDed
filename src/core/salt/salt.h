@@ -4,8 +4,15 @@
 #include <cstddef>
 #include <string_view>
 
+template<typename T>
+concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, std::string_view view) {
+    {t.Serialize} -> std::same_as<std::span<std::byte>>;
+    {t.Deserialize(deserializedSalt)};
+    {t.WriteToFile(view)} -> std::same_as<void>;
+    {t.ReadFromFile(view)};
+};
 
-template<class SaltImpl>
+template<SaltImplConcept SaltImpl>
 class Salt {
 public:
     Salt(std::span<std::byte> deserializedSalt);
