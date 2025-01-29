@@ -9,14 +9,15 @@
 
 namespace core {
 
-class Algo : public Encoder, public Decoder {
+template <SaltImplConcept SaltImpl>
+class Algo : public Encoder<SaltImpl>, public Decoder<SaltImpl> {
 public:
-    const Encoder& GetEncoder() const;
-    const Decoder& GetDecoder() const;
+    const Encoder<SaltImpl>& GetEncoder() const;
+    const Decoder<SaltImpl>& GetDecoder() const;
 
 protected:
-    virtual std::string Decode(std::string_view view, const Salt& salt) const = 0;
-    virtual std::string Encode(std::string_view view, const Salt& salt) const = 0;
+    virtual std::string Decode(std::string_view view, const Salt<SaltImpl>& salt) const = 0;
+    virtual std::string Encode(std::string_view view, const Salt<SaltImpl>& salt) const = 0;
 };
 
 } // namespace core
