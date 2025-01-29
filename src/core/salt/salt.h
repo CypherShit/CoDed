@@ -14,7 +14,6 @@ concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, s
     {t.ReadFromFile(filename)};
 };
 
-
 template<SaltImplConcept SaltImpl>
 class Salt {
 public:
