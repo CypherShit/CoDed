@@ -7,9 +7,10 @@
 
 namespace core {
 
+template <SaltImplConcept SaltImpl>
 class Encoder {
 public:
-    virtual std::string Encode(std::string_view view, const Salt& salt) const = 0;
+    virtual std::string Encode(std::string_view view, const Salt<SaltImpl>& salt) const = 0;
 };
 
 } // namespace core

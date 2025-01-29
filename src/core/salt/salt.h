@@ -4,7 +4,7 @@
 #include <cstddef>
 #include <string_view>
 
-namespace {
+namespace core {
 
 template<typename T>
 concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, std::string_view filename) {
@@ -14,9 +14,6 @@ concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, s
     {t.ReadFromFile(filename)};
 };
 
-} // namespace
-
-namespace core {
 
 template<SaltImplConcept SaltImpl>
 class Salt {
