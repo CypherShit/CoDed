@@ -4,18 +4,24 @@
 #include <cstddef>
 #include <string_view>
 
+namespace {
+
 template<typename T>
-concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, std::string_view view) {
+concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, std::string_view filename) {
     {t.Serialize} -> std::same_as<std::span<std::byte>>;
     {t.Deserialize(deserializedSalt)};
-    {t.WriteToFile(view)} -> std::same_as<void>;
-    {t.ReadFromFile(view)};
+    {t.WriteToFile(filename)} -> std::same_as<void>;
+    {t.ReadFromFile(filename)};
 };
+
+} // namespace
+
+namespace core {
 
 template<SaltImplConcept SaltImpl>
 class Salt {
 public:
-    Salt(std::span<std::byte> deserializedSalt);
+    explicit Salt(std::span<std::byte> deserializedSalt);
 
     static std::span<std::byte> Serialize(const Salt &salt) {
         return SaltImpl::Serialize(salt);
@@ -25,11 +31,13 @@ public:
         return SaltImpl::Deserialize(deserializedSalt);
     }
 
-    static void WriteToFile(std::string_view view) {
-        SaltImpl::WriteToFile(view);
+    static void WriteToFile(std::string_view filename) {
+        SaltImpl::WriteToFile(filename);
     }
 
-    static Salt ReadFromFile(std::string_view view){
-        return SaltImpl::ReadFromFile(view);
+    static Salt ReadFromFile(std::string_view filename){
+        return SaltImpl::ReadFromFile(filename);
     }
 };
+
+} // namespace core
