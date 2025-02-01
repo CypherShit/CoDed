@@ -17,3 +17,8 @@ int Factorial(int n) {
 TEST(TestFactorial, HandlesZeroInput) {
     ASSERT_EQ(1, Factorial(0));
 }
+
+int main(int argc, char**argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
