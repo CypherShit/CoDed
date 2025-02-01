@@ -1,8 +1,8 @@
 #pragma once
 
-#include <decoder/decoder.h>
-#include <encoder/encoder.h>
-#include <salt/salt.h>
+#include <core/decoder/decoder.h>
+#include <core/encoder/encoder.h>
+#include <core/salt/salt.h>
 
 #include <string>
 #include <string_view>
