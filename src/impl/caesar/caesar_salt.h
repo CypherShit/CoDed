@@ -1,11 +1,11 @@
 #pragma once
 
-#include "../../core/salt/salt.h"
+#include <core/salt/salt.h>
 
 namespace coded::impl::caesar {
 
-class CaesarSaltImpl : public Salt<CaesarSaltImpl> {
-  static std::span<std::byte> Serialize(const Salt & /*salt*/) { return {}; }
+class CaesarSaltImpl : public core::Salt<CaesarSaltImpl> {
+  static std::span<std::byte> Serialize(const core::Salt<CaesarSaltImpl> & /*salt*/) { return {}; }
 
   static CaesarSaltImpl Deserialize(std::span<std::byte> /*deserializedSalt*/) {
     return {};

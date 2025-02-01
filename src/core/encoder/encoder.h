@@ -1,6 +1,6 @@
 #pragma once
 
-#include <salt/salt.h>
+#include <core/salt/salt.h>
 
 #include <string>
 #include <string_view>
