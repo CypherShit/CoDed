@@ -2,6 +2,8 @@
 
 #include "caesar_salt.h"
 
+#include <cstdint>   
+
 #include <core/algo/algo.h>
 
 namespace coded::impl::caesar {
