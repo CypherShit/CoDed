@@ -3,12 +3,12 @@
 
 namespace core {
     
-template <SaltImplConcept SaltImpl>
+template <typename SaltImpl>
 const Encoder<SaltImpl>& Algo<SaltImpl>::GetEncoder() const {
     return *this;
 }
 
-template <SaltImplConcept SaltImpl>
+template <typename SaltImpl>
 const Decoder<SaltImpl>& Algo<SaltImpl>::GetDecoder() const {
     return *this;
 }

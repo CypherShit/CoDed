@@ -6,17 +6,11 @@
 
 namespace core {
 
-template<typename T>
-concept SaltImplConcept = requires(T t, std::span<std::byte> deserializedSalt, std::string_view filename) {
-    {t.Serialize} -> std::same_as<std::span<std::byte>>;
-    {t.Deserialize(deserializedSalt)};
-    {t.WriteToFile(filename)} -> std::same_as<void>;
-    {t.ReadFromFile(filename)};
-};
-
-template<SaltImplConcept SaltImpl>
+template<typename SaltImpl>
 class Salt {
 public:
+    Salt() = default;
+    
     explicit Salt(std::span<std::byte> deserializedSalt);
 
     static std::span<std::byte> Serialize(const Salt &salt) {
