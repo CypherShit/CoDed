@@ -1,18 +1,20 @@
 #pragma once
 
-#include "../../core/algo/algo.h"
+#include "caesar_salt.h"
+
+#include <core/algo/algo.h>
 
 namespace coded::impl::caesar {
 
-class CaesarCipherAlgo : public Algo<CaesarSaltImpl> {
+class CaesarCipherAlgo : public core::Algo<CaesarSaltImpl> {
 public:
   std::string Decode(std::string_view view,
-                     const Salt<CaesarSaltImpl> & /*salt*/) const override {
+                     const core::Salt<CaesarSaltImpl> & /*salt*/) const override {
     return ShiftString(view, -shift_);
   }
 
   std::string Encode(std::string_view view,
-                     const Salt<CaesarSaltImpl> & /*salt*/) const override {
+                     const core::Salt<CaesarSaltImpl> & /*salt*/) const override {
     return ShiftString(view, shift_);
   }
 
@@ -34,6 +36,6 @@ private:
 
     return result;
   }
-}
+};
 
 } // namespace coded::impl::caesar

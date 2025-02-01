@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include <impl/caesar/caesar_algo.h>
+
 namespace {
 
 int Factorial(int n) {
