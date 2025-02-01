@@ -9,7 +9,7 @@
 
 namespace core {
 
-template <SaltImplConcept SaltImpl>
+template <typename SaltImpl>
 class Algo : public Encoder<SaltImpl>, public Decoder<SaltImpl> {
 public:
     const Encoder<SaltImpl>& GetEncoder() const;
