@@ -1,15 +1,13 @@
 #include "algo.h"
-#include <encoder/encoder.h>
+#include <core/encoder/encoder.h>
 
 namespace core {
     
-template <typename SaltImpl>
-const Encoder<SaltImpl>& Algo<SaltImpl>::GetEncoder() const {
+const Encoder& Algo::GetEncoder() const {
     return *this;
 }
 
-template <typename SaltImpl>
-const Decoder<SaltImpl>& Algo<SaltImpl>::GetDecoder() const {
+const Decoder& Algo::GetDecoder() const {
     return *this;
 }
 
