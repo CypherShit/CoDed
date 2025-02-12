@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <random>
 
 std::string genString(uint32_t sz) {

@@ -1,6 +1,7 @@
 #include "playfair_algo.h"
 
 #include <cassert>
+#include <algorithm>
 #include <random>
 
 namespace coded::impl::playfair {
