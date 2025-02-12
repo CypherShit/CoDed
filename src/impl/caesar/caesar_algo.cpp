@@ -25,8 +25,8 @@ std::string CaesarCipherAlgo::ShiftString(std::string_view view, int shift) cons
 
     for (char ch : view) {
         if (std::isalpha(ch)) {
-        char base = std::islower(ch) ? 'a' : 'A';
-        ch = static_cast<char>((ch - base + shift + 26) % 26 + base);
+            char base = std::islower(ch) ? 'a' : 'A';
+            ch = static_cast<char>((ch - base + shift + 26) % 26 + base);
         }
         result.push_back(ch);
     }
@@ -34,4 +34,4 @@ std::string CaesarCipherAlgo::ShiftString(std::string_view view, int shift) cons
     return result;
 }
 
-} // namespace coded::impl::caesar
+}  // namespace coded::impl::caesar
