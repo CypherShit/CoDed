@@ -1,4 +1,5 @@
 #include "caesar_algo.h"
+
 #include <string>
 
 namespace coded::impl::caesar {
@@ -18,8 +19,7 @@ void CaesarCipherAlgo::setShift(std::uint32_t shift) {
     shift_ = shift;
 }
 
-std::string CaesarCipherAlgo::ShiftString(std::string_view view, int shift)
-    const {
+std::string CaesarCipherAlgo::ShiftString(std::string_view view, int shift) const {
     std::string result;
     result.reserve(view.size());
 
