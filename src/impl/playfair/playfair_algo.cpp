@@ -1,5 +1,7 @@
 #include "playfair_algo.h"
+
 #include <cassert>
+#include <algorithm>
 #include <random>
 
 namespace coded::impl::playfair {
@@ -34,8 +36,8 @@ std::string PlayfairCipherAlgo::Decode(std::string_view view) const {
             result += rev_salt[first_row][(first_column + edge - 1) % edge];
             result += rev_salt[second_row][(second_column + edge - 1) % edge];
         } else if (first_column == second_column) {
-            result += rev_salt[(first_row + edge - 1) % edge][first_column];
-            result += rev_salt[(second_row + edge - 1) % edge][second_column];
+            result += rev_salt[(first_row + edge - 1) % (edge / 2)][first_column];
+            result += rev_salt[(second_row + edge - 1) % (edge / 2)][second_column];
         } else {
             result += rev_salt[first_row][second_column];
             result += rev_salt[second_row][first_column];
@@ -57,8 +59,8 @@ std::string PlayfairCipherAlgo::Encode(std::string_view view) const {
             result += rev_salt[first_row][(first_column + 1) % edge];
             result += rev_salt[second_row][(second_column + 1) % edge];
         } else if (first_column == second_column) {
-            result += rev_salt[(first_row + 1) % edge][first_column];
-            result += rev_salt[(second_row + 1) % edge][second_column];
+            result += rev_salt[(first_row + 1) % (edge / 2)][first_column];
+            result += rev_salt[(second_row + 1) % (edge / 2)][second_column];
         } else {
             result += rev_salt[first_row][second_column];
             result += rev_salt[second_row][first_column];
@@ -108,7 +110,7 @@ PlayfairCipherAlgo::stringToSalt(const std::string &salt) {
         for (auto column = 0; column < edge; column++) {
             const auto pos = row * edge + column;
             if (salt.size() == pos) {
-                break;
+                return salt_map;
             }
             salt_map[salt[pos]] = {row, column};
         }
