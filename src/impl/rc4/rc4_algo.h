@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../core/algo/algo.h"
+#include <core/algo/algo.h>
 
 #include <array>
 #include <climits>

@@ -12,7 +12,7 @@ namespace {
 constexpr std::uint16_t DEFAULT_KEY_LENGTH = 25;
 
 std::string GenerateRandomKey() {
-  static std::uniform_int_distribution<char> DISTRIBUTION(CHAR_MIN, CHAR_MAX);
+  static std::uniform_int_distribution<int> DISTRIBUTION(CHAR_MIN, CHAR_MAX);
 
   std::default_random_engine generator;
   std::string result;
