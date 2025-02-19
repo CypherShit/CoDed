@@ -5,6 +5,7 @@
 #include <impl/playfair/playfair_algo.h>
 #include <impl/rc4/rc4_algo.h>
 #include <impl/viginer/viginer_algo.h>
+#include <impl/vernam/vernam_algo.h>
 #include "helper.h"
 
 const std::string input = genString(100);
@@ -114,5 +115,32 @@ static void BM_Vigenere_Decode(benchmark::State &state) {
 }
 
 BENCHMARK(BM_Vigenere_Decode);
+
+// Vernam
+static void BM_Vernam_Encode(benchmark::State &state) {
+    coded::impl::vernam::VernamAlgo algo(genString(10));
+
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    for (auto _ : state) {
+        encoder.Encode(input);
+    }
+}
+
+BENCHMARK(BM_Vernam_Encode);
+
+static void BM_Vernam_Decode(benchmark::State &state) {
+    coded::impl::vernam::VernamAlgo algo(genString(10));
+
+    const core::Decoder &decoder = algo.GetDecoder();
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    std::string encoded = encoder.Encode(input);
+    for (auto _ : state) {
+        decoder.Decode(encoded);
+    }
+}
+
+BENCHMARK(BM_Vernam_Decode);
 
 BENCHMARK_MAIN();
