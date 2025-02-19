@@ -2,34 +2,26 @@
 
 ### Структура
   ![Структура](./image/structure.png?raw=true)
-
+  
 ### Описание интерфейсов
 - **Encoder**
-    - ```static std::string encode(std::string_view, ISalt);```
+    - ```std::string encode(std::string_view, ISalt);```
     
         Кодирует строку при помощи соли
 
 - **Decoder**
-    - ```static std::string decode(std::string_view, ISalt);``` 
+    - ```std::string decode(std::string_view, ISalt);``` 
     
         Декодирует строку по соли
 
 - **Algorithm**
-    - ``` static ISalt genSalt(); ```
-     
-        Генерирует соль
+    - ```const Encoder& getEncoder() const;```
 
-- **Salt**
-    - ```std::span\<std::byte\> serialize();```
-    
-        Сериализует соль в байты
-    - ```void writeToFile(std::string_view);```
+        Возвращает encoder алгоритма
 
-        Записывает соль в файл
+    - ```const Encoder& getDecoder() const;```
 
-    - ```static ISalt readFromFile(std::string_view);```
-
-        Читает соль из файла
+        Возвращает decoder алгоритма
 
 ## Функциональные требования
 - Поддержка всех заявленных алгоритмов шифрования.
