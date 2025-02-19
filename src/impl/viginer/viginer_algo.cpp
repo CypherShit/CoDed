@@ -76,7 +76,7 @@ char ViginerAlgo::ShiftValue(char symbol, char shiftValue, bool isDecode) {
 }
 
 std::string ViginerAlgo::GenerateRandomKey() {
-    static std::uniform_int_distribution<char> DISTRIBUTION(CHAR_MIN, CHAR_MAX);
+    static std::uniform_int_distribution<int> DISTRIBUTION(CHAR_MIN, CHAR_MAX);
 
     std::default_random_engine generator;
     std::string result;
@@ -90,4 +90,3 @@ std::string ViginerAlgo::GenerateRandomKey() {
 }
 
 } // namespace coded::impl::viginer
-
