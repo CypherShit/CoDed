@@ -47,7 +47,8 @@ static void BM_PlayfairCipher_Encode(benchmark::State &state) {
 BENCHMARK(BM_PlayfairCipher_Encode);
 
 static void BM_PlayfairCipher_Decode(benchmark::State &state) {
-    coded::impl::playfair::PlayfairCipherAlgo algo(genString(uint32_t sz));
+    coded::impl::playfair::PlayfairCipherAlgo algo;
+    algo.genSalt();
 
     const core::Decoder &decoder = algo.GetDecoder();
     const core::Encoder &encoder = algo.GetEncoder();

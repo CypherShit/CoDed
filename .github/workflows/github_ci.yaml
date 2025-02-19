@@ -19,6 +19,10 @@ jobs:
         sudo cp lib/*.a /usr/lib
         sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a 
         sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+      
+    - name: Install google benchmark
+      run: |
+        sudo apt-get install -y libbenchmark-dev
 
     - name: Configure Project
       run: cmake -B build -S .
