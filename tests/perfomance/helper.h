@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <random>
 
-std::string genString(uint32_t sz) {
+inline std::string genString(uint32_t sz) {
     std::string asciiString;
     for (unsigned char c = 0; c < 128; c++) {
         asciiString += c;

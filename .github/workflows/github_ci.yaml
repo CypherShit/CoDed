@@ -23,6 +23,10 @@ jobs:
     - name: Install google benchmark
       run: |
         sudo apt-get install -y libbenchmark-dev
+      
+    - name: Install google perf-tools
+      run: |
+        sudo apt-get install -y google-perftools libgoogle-perftools-dev
 
     - name: Configure Project
       run: cmake -B build -S .
