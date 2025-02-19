@@ -7,6 +7,7 @@ add_library(${PROJECT_NAME}
     viginer/viginer_algo.cpp
     playfair/playfair_algo.cpp 
     rc4/rc4_algo.cpp
+    vernam/vernam_algo.cpp
 )
 
 add_library(sub::impl ALIAS ${PROJECT_NAME})
