@@ -6,6 +6,8 @@
 #include <impl/rc4/rc4_algo.h>
 #include <impl/viginer/viginer_algo.h>
 #include <impl/vernam/vernam_algo.h>
+#include <impl/atbash/atbash_algo.h>
+#include <impl/trithemius/trithemius_algo.h>
 #include "helper.h"
 
 const std::string input = genString(100);
@@ -142,5 +144,59 @@ static void BM_Vernam_Decode(benchmark::State &state) {
 }
 
 BENCHMARK(BM_Vernam_Decode);
+
+// Atbash
+static void BM_Atbash_Encode(benchmark::State &state) {
+    coded::impl::atbash::AtbashCipherAlgo algo;
+
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    for (auto _ : state) {
+        encoder.Encode(input);
+    }
+}
+
+BENCHMARK(BM_Atbash_Encode);
+
+static void BM_Atbash_Decode(benchmark::State &state) {
+    coded::impl::atbash::AtbashCipherAlgo algo;
+
+    const core::Decoder &decoder = algo.GetDecoder();
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    std::string encoded = encoder.Encode(input);
+    for (auto _ : state) {
+        decoder.Decode(encoded);
+    }
+}
+
+BENCHMARK(BM_Atbash_Decode);
+
+// Trithmeius
+static void BM_Trithemius_Encode(benchmark::State &state) {
+    coded::impl::trithemius::TrithemiusCipherAlgo algo;
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    for (auto _ : state) {
+        encoder.Encode(input);
+    }
+}
+
+BENCHMARK(BM_Trithemius_Encode);
+
+static void BM_Trithemius_Decode(benchmark::State &state) {
+    coded::impl::trithemius::TrithemiusCipherAlgo algo;
+
+    const core::Decoder &decoder = algo.GetDecoder();
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    std::string encoded = encoder.Encode(input);
+    for (auto _ : state) {
+        decoder.Decode(encoded);
+    }
+}
+
+BENCHMARK(BM_Trithemius_Decode);
+
 
 BENCHMARK_MAIN();

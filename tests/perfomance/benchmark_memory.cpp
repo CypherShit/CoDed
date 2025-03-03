@@ -6,6 +6,8 @@
 #include <impl/rc4/rc4_algo.h>
 #include <impl/viginer/viginer_algo.h>
 #include <impl/vernam/vernam_algo.h>
+#include <impl/atbash/atbash_algo.h>
+#include <impl/trithemius/trithemius_algo.h>
 #include <gperftools/malloc_extension.h>
 #include <iostream>
 #include "helper.h"
@@ -160,3 +162,63 @@ static void BM_Vernam_Decode_Mem(benchmark::State &state) {
 }
 
 BENCHMARK(BM_Vernam_Decode_Mem);
+
+// // Atbash
+static void BM_Atbash_Encode_Mem(benchmark::State &state) {
+    coded::impl::atbash::AtbashCipherAlgo algo;
+
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    for (auto _ : state) {
+        encoder.Encode(input);
+    }
+    reportMemoryUsage();
+}
+
+BENCHMARK(BM_Atbash_Encode_Mem);
+
+static void BM_Atbash_Decode_Mem(benchmark::State &state) {
+    coded::impl::atbash::AtbashCipherAlgo algo;
+
+    const core::Decoder &decoder = algo.GetDecoder();
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    std::string encoded = encoder.Encode(input);
+    for (auto _ : state) {
+        decoder.Decode(encoded);
+    }
+    reportMemoryUsage();
+}
+
+BENCHMARK(BM_Atbash_Decode_Mem);
+
+
+// // Trithemius
+static void BM_Trithemius_Encode_Mem(benchmark::State &state) {
+    coded::impl::trithemius::TrithemiusCipherAlgo algo;
+
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    for (auto _ : state) {
+        encoder.Encode(input);
+    }
+    reportMemoryUsage();
+}
+
+BENCHMARK(BM_Trithemius_Encode_Mem);
+
+static void BM_Trithemius_Decode_Mem(benchmark::State &state) {
+    coded::impl::trithemius::TrithemiusCipherAlgo algo;
+
+    const core::Decoder &decoder = algo.GetDecoder();
+    const core::Encoder &encoder = algo.GetEncoder();
+
+    std::string encoded = encoder.Encode(input);
+    for (auto _ : state) {
+        decoder.Decode(encoded);
+    }
+    reportMemoryUsage();
+}
+
+BENCHMARK(BM_Trithemius_Decode_Mem);
+

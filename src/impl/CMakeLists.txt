@@ -8,6 +8,8 @@ add_library(${PROJECT_NAME}
     playfair/playfair_algo.cpp 
     rc4/rc4_algo.cpp
     vernam/vernam_algo.cpp
+    atbash/atbash_algo.cpp 
+    trithemius/trithemius_algo.cpp
 )
 
 add_library(sub::impl ALIAS ${PROJECT_NAME})
