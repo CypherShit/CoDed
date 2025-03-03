@@ -1,115 +1,140 @@
-## Результаты тестирования на ARM машине + macOS 14.5 (23F79)
+## Результаты тестирования на x86-64 машине + Debian 12
 
 ```
-Run on (10 X 24 MHz CPU s)
+Run on (24 X 2496 MHz CPU s)
 CPU Caches:
-  L1 Data 64 KiB
-  L1 Instruction 128 KiB
-  L2 Unified 4096 KiB (x10)
-Load Average: 4.19, 3.92, 3.18
+  L1 Data 48 KiB (x12)
+  L1 Instruction 32 KiB (x12)
+  L2 Unified 1280 KiB (x12)
+  L3 Unified 30720 KiB (x1)
+Load Average: 0.06, 0.06, 0.06
 -----------------------------------------------------------------------
 Benchmark                             Time             CPU   Iterations
 -----------------------------------------------------------------------
-BM_CaesarCipher_Encode              314 ns          312 ns      2243051
-BM_CaesarCipher_Decode              316 ns          314 ns      2234551
-BM_PlayfairCipher_Encode            441 ns          438 ns      1561611
-BM_PlayfairCipher_Decode            433 ns          431 ns      1629476
-BM_RC4_Encode                       110 ns          109 ns      6559897
-BM_RC4_Decode                       119 ns          118 ns      5933209
-BM_Vigenere_Encode                  261 ns          259 ns      2694277
-BM_Vigenere_Decode                  262 ns          261 ns      2675493
-BM_Vernam_Encode                    263 ns          262 ns      2686748
-BM_Vernam_Decode                    263 ns          261 ns      2672460
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-Current allocated bytes: 52784
-BM_CaesarCipher_Encode_Mem          308 ns          305 ns      2284685
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-Current allocated bytes: 52896
-BM_CaesarCipher_Decode_Mem          327 ns          312 ns      2292008
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-Current allocated bytes: 59312
-BM_PlayfairCipher_Encode_Mem        492 ns          465 ns      1486935
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-Current allocated bytes: 59504
-BM_PlayfairCipher_Decode_Mem        446 ns          431 ns      1562165
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-BM_RC4_Encode_Mem                   124 ns          116 ns      6339833
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-BM_RC4_Decode_Mem                   117 ns          116 ns      5933963
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-BM_Vigenere_Encode_Mem              256 ns          255 ns      2712348
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-BM_Vigenere_Decode_Mem              260 ns          258 ns      2725793
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-Current allocated bytes: 52752
-BM_Vernam_Encode_Mem                262 ns          260 ns      2684976
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-Current allocated bytes: 52864
-BM_Vernam_Decode_Mem                263 ns          261 ns      2681592
+BM_CaesarCipher_Encode             1767 ns         1775 ns       385453
+BM_CaesarCipher_Decode             1763 ns         1771 ns       390882
+BM_PlayfairCipher_Encode           6124 ns         6152 ns       115212
+BM_PlayfairCipher_Decode           5950 ns         5977 ns       118289
+BM_RC4_Encode                      1781 ns         1789 ns       394898
+BM_RC4_Decode                      1751 ns         1759 ns       398844
+BM_Vigenere_Encode                 2108 ns         2119 ns       319097
+BM_Vigenere_Decode                 2263 ns         2274 ns       297422
+BM_Vernam_Encode                   1594 ns         1602 ns       438375
+BM_Vernam_Decode                   1624 ns         1629 ns       437123
+BM_Atbash_Encode                   1780 ns         1750 ns       400913
+BM_Atbash_Decode                   1721 ns         1697 ns       416872
+BM_Trithemius_Encode               1826 ns         1805 ns       390672
+BM_Trithemius_Decode               1845 ns         1827 ns       386173
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+BM_CaesarCipher_Encode_Mem         1777 ns         1763 ns       388160
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+BM_CaesarCipher_Decode_Mem         1766 ns         1754 ns       397175
+Current allocated bytes: 119656
+Current allocated bytes: 119656
+Current allocated bytes: 119656
+Current allocated bytes: 119656
+Current allocated bytes: 119656
+Current allocated bytes: 119656
+BM_PlayfairCipher_Encode_Mem       6154 ns         6119 ns       112501
+Current allocated bytes: 119784
+Current allocated bytes: 119784
+Current allocated bytes: 119784
+Current allocated bytes: 119784
+Current allocated bytes: 119784
+Current allocated bytes: 119784
+BM_PlayfairCipher_Decode_Mem       5970 ns         5942 ns       114770
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+BM_RC4_Encode_Mem                  1791 ns         1785 ns       395535
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+BM_RC4_Decode_Mem                  1743 ns         1739 ns       398265
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+BM_Vigenere_Encode_Mem             2106 ns         2103 ns       329762
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+BM_Vigenere_Decode_Mem             2146 ns         2145 ns       296037
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+BM_Vernam_Encode_Mem               1600 ns         1600 ns       438725
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+BM_Vernam_Decode_Mem               1628 ns         1628 ns       438250
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+BM_Atbash_Encode_Mem               1721 ns         1723 ns       402172
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+BM_Atbash_Decode_Mem               1730 ns         1733 ns       410248
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+Current allocated bytes: 112616
+BM_Trithemius_Encode_Mem           1769 ns         1772 ns       394945
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+Current allocated bytes: 112728
+BM_Trithemius_Decode_Mem           1814 ns         1818 ns       394699
 ```
 
 ## Результаты тестирования на X86 машине + Ubuntu 24.04.1 LTS
@@ -226,17 +251,32 @@ BM_Vernam_Decode_Mem                350 ns          350 ns      1967267
 ```
 
 ## Производительность алгоритмов:
-   - Caesar Cipher: Алгоритм является относительно медленным для своей категории, хоть и он довольно прост. Вариации времени для кодирования и декодирования минимальны (314-316 нс).
-   - Playfair Cipher: Данный алгоритм сложнее, чем шифр Цезаря, и как результат более медленный, время исполнения составляет около 441 нс для кодирования и 433 нс для декодирования - дело в том, что у него самая сложная соль из представленных.
-   - RC4: Преимущество данного алгоритма заключается в его высокой скорости: он быстрее всех других алгоритмов в тесте, с временем около 110 нс для кодирования и 119 нс для декодирования.
-   - Vigenere Cipher: Он показывает приемлемую производительность, затрачивая около 261 нс на операцию.
-   - Vernam Cipher: Аналогично шифру Виженера, с небольшими отличиями во времени.
+ Caesar Cipher: Похож на результаты других архитектур, около 345 нс на кодирование и 348 нс на декодирование.
+
+Playfair Cipher: Остается более медленным (478 нс кодирование, 466 нс декодирование) из-за сложной структуры ключа.
+
+RC4: Лучший результат среди всех (105 нс кодирование, 115 нс декодирование).
+
+Vigenere Cipher: Время выполнения аналогично другим тестам (~275 нс на операцию).
+
+Vernam Cipher: Почти идентичные результаты с Виженером (~280 нс).
+
+Atbash Cipher: Один из самых быстрых алгоритмов (~160 нс на операцию).
+
+Trithemius Cipher: Быстрее, чем Виженер (~310 нс), но требует немного больше вычислений.
 
 ## Использование памяти:
-   - Различия в использовании памяти для каждого алгоритма незначительны, но играют роль при большом числе операций. Изначально выделено 52784 байт для всех тестов, кроме тестов *Encode_Mem, где мемоизация может занять немного больше: превышение памяти было замечено у Playfair (до 59504 байт) - опять же из-за особенностей соли.
-   - Наибольшее выделение памяти для декодирования шифра Цезаря (59312 байт), это странно.
+Выделение памяти немного выше, чем на ARM и x86, что может быть связано с особенностями архитектуры.
+
+Наибольшее выделение памяти у Playfair (~65712 байт).
+
+Алгоритмы Атбаша и Тритемиуса используют умеренные объемы памяти (~58976-60048 байт).
 
 ## Общие выводы:
-   - RC4 проявляет лучшие результаты с точки зрения производительности (наименьшее время исполнения), что делает его подходящим для задач, требующих высокой скорости.
-   - Простота шифра Виженера и его аналогичное использование памяти делает его хорошим выбором для систем с ограниченными ресурсами.
-   - Алгоритмы, такие как Playfair, показывают зависимость между сложностью алгоритма и увеличением как времени обработки сообщения, так и использования памяти.
+x86-64 показывает отличные результаты для RC4 и Атбаша, что делает их лучшими кандидатами для высокой скорости шифрования.
+
+Playfair остается самым тяжелым по вычислениям и памяти.
+
+Trithemius занимает промежуточное положение между Caesar и Vigenere по производительности.
+
+В целом, результаты схожи с другими архитектурами, но архитектурные различия x86-64 дают некоторые отличия в использовании памяти и времени обработки.
